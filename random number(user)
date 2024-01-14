@@ -1,0 +1,44 @@
+import random 
+
+
+def computer_guess():
+    low = 1
+    high = 20
+    feedback = ''
+
+    while feedback != 'c':
+        guess = random.randint(low,high)
+        feedback = input(f'is {guess} too high(h), too low(l) or correct(c) : ')
+
+        if feedback == 'h':
+            high = guess-1
+        elif feedback == 'l':
+            low = guess + 1
+
+    print(f'Guessed correctly!!number is : {guess}')
+
+
+def computer_guess2():
+    low = 1
+    high = 20
+    user = int(input(f'Enter the number between {low} and {high} : '))
+    print(" Let the computer guess")
+    #status = ''
+    guess = random.randint(low,high)
+    while guess!=user:
+        
+        print(f'Guessed number : {guess}')
+        #status = input('is the number too high(h) , too low(l) : ')
+        guess = random.randint(low,high)
+        if guess > user:  #status == 'h'
+            high = guess-1
+        elif guess < user: #status == 'l'
+            low = guess+1
+        else:               #user == guess
+            print(f'Guessed number : {guess}')
+            break
+
+    print(f'you guessed {guess} correcty!!')
+
+
+computer_guess2()
